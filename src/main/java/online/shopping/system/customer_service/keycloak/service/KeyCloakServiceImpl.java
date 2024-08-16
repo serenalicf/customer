@@ -23,6 +23,8 @@ public class KeyCloakServiceImpl implements KeyCloakService{
     @Autowired
     KeycloakConfig keycloakConfig;
 
+    Keycloak keycloak = null;
+
     @Override
     public void addUser(UserDTO userDTO) {
         CredentialRepresentation credential = Credentials.createPasswordCredentials(userDTO.getPassword());
@@ -86,7 +88,6 @@ public class KeyCloakServiceImpl implements KeyCloakService{
     }
 
     public  Keycloak getKeycloakInstance() {
-        Keycloak keycloak = keycloakConfig.getKeycloak();
         if( keycloak == null){
             keycloak = KeycloakBuilder.builder()
                     .serverUrl(keycloakConfig.getServerUrl())

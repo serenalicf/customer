@@ -8,11 +8,8 @@ import org.springframework.context.annotation.Configuration;
 
 @Getter
 @Setter
-@Configuration
 @ConfigurationProperties(prefix ="keycloak")
 public class KeycloakConfig {
-
-    Keycloak keycloak = null;
 
     private String serverUrl = "";
 
@@ -27,7 +24,4 @@ public class KeycloakConfig {
     public KeycloakConfig(){
     }
 
-    public void setKeycloak(Keycloak keycloak) {
-        this.keycloak = keycloak;
-    }
 }
